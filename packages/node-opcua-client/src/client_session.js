@@ -380,13 +380,13 @@ ClientSession.prototype.readHistoryValue = function (nodes, start, end, callback
         startTime: start,
         endTime: end,
         numValuesPerNode: 0,
-        returnBounds: true
+        returnBounds: false
     });
 
     var request = new historizing_service.HistoryReadRequest({
         nodesToRead: nodesToRead,
         historyReadDetails: ReadRawModifiedDetails,
-        timestampsToReturn: read_service.TimestampsToReturn.Both,
+        timestampsToReturn: read_service.TimestampsToReturn.Neither,
         releaseContinuationPoints: false
     });
 
