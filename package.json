@@ -11,29 +11,26 @@
   },
   "scripts": {
     "_x_preinstall": "npm i browserify -g",
-    "postinstall": "node  ./node_modules/lerna/bin/lerna.js bootstrap && node  ./node_modules/lerna/bin/lerna.js run generate",
-    "pretest": "node  ./node_modules/lerna/bin/lerna.js run pretest",
-    "_old_test": "cd source && mocha test --color -R spec --recursive --timeout 200000 --bail",
-    "test": "cd packages && node --expose-gc --max-old-space-size=1024 run_all_mocha_tests.js",
-    "test:withnode  ./node_modules/lerna/bin/lerna.js": "node  ./node_modules/lerna/bin/lerna.js run test",
+    "postinstall": "node lerna bootstrap && node lerna run generate",
+    "pretest": "node lerna run pretest",
+    "_old_test":
+      "cd source && mocha test --color -R spec --recursive --timeout 200000 --bail",
+    "test":
+      "cd packages && node --expose-gc --max-old-space-size=1024 run_all_mocha_tests.js",
+    "test:withnode lerna": "node lerna run test",
     "eslint": "eslint packages/*/src/**.js packages/*/test/ ",
-    "eslint-fix": "eslint --fix packages/*/src/**.js packages/*/__tests__/ utils/*.js scripts/*.js",
+    "eslint-fix":
+      "eslint --fix packages/*/src/**.js packages/*/__tests__/ utils/*.js scripts/*.js",
     "generate_doc": "make doc",
-    "generate_autodoc": "./node_modules/autodoc/bin/autodoc -o _tmp_generated_doc bin/binaryStream.js",
-    "ncu": "ncu -au && node  ./node_modules/lerna/bin/lerna.js exec ncu -- -au"
+    "generate_autodoc":
+      "./node_modules/autodoc/bin/autodoc -o _tmp_generated_doc bin/binaryStream.js",
+    "ncu": "ncu -au && node lerna exec ncu -- -au"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/node-opcua/node-opcua.git"
   },
-  "keywords": [
-    "OPCUA",
-    "opcua",
-    "m2m",
-    "iot",
-    "opc ua",
-    "internet of things"
-  ],
+  "keywords": ["OPCUA", "opcua", "m2m", "iot", "opc ua", "internet of things"],
   "author": "Etienne Rossignon",
   "license": "MIT",
   "bugs": {
